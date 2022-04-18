@@ -42,3 +42,46 @@ print(empieza_con("40opjk", 40))
 def ej7(string):
     return re.findall("[A-Za-z0-9]", string)
 print(ej7("holaKJGKHGJH"))
+
+#8
+def numeros(string):
+    return re.findall("[0-9]", string)
+print(numeros("0ngsdf322f4"))
+
+#9
+def guiones(string):
+    return re.findall("-(.*?)-", string)
+print(guiones("fff -esto- ff  ggrgr-esto tambien-gg"))
+
+#10
+def substrings(string):
+    return re.search("@(.*?)&", string) or re.search("&(.*?)@", string) 
+print(substrings("tomas.scarfo@gmail&.com"))
+print(substrings("tomas.scarfo&gmail@.com"))
+
+#11 - ROMPE
+"""def letra_p(lista):
+    return re.findall("[^p]", lista)
+lista111 = ["papa mama", "practica python"]
+print(letra_p(lista111))"""
+ 
+ #12
+def sustituir(string):
+    return re.sub("[_ :]", "|", string)
+print(sustituir("tomas_alejandro:scarfo "))
+
+#13
+def no_numerico(string):
+    return re.sub("\W"[0:2], "_", string,2)
+print(no_numerico("///messi__"))
+
+#14
+def espacios_y_tab(string):
+    return re.sub("[\s\t]", ";", string)
+print(espacios_y_tab("espacios y    tabulaciones"))
+
+#15
+def correo_electronico(mail):
+    return bool(re.findall("[a-z0-9.-_]"+"@"+"[a-z0-9.-_]"+"."+"[a-z]", mail))
+print(correo_electronico("tomas.scarfo@gmail.com"))
+print(correo_electronico("tomas/scarfo.gmail.com"))
