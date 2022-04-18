@@ -1,6 +1,3 @@
-from calendar import day_name
-
-
 print("messi")
 print("papa")
 

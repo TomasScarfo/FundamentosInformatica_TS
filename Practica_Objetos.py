@@ -1,7 +1,4 @@
 #1
-from msilib.schema import Class
-
-
 class Perro:
     def __init__(self):
         self._alimento = 0
