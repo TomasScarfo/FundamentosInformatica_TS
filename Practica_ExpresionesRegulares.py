@@ -37,7 +37,7 @@ print(empieza_con("4opjk", 2))
 print(empieza_con("40opjk", 40))
 
 #6
-
+   
 #7
 def ej7(string):
     return re.findall("[A-Za-z0-9]", string)
