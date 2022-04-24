@@ -114,44 +114,62 @@ print(calculadora.multiplicar(2))
 print(calculadora.valorActual())
 
 #7 
-"""
-class Gorriones():
+
+class Gorrion:
     def __init__(self):
         self.km = 0
         self.gramos = 0
-        self.veces_comio = 0
-        self.veces_volo = 0
+        self.listakm = []
+        self.listagramos = []
 
     def volar(self, km):
-        self.volar += km
-        self.veces_volo += 1
-    
+        self.km += km
+        self.listakm.append(km)
+                    
     def comer(self, gramos):
-        self.comer = gramos
-        self.veces_comio += 1
+        self.gramos += gramos
+        self.listagramos.append(gramos)
     
     def css(self):
-        return self.km / self.gramos
+        if self.gramos > 0:
+            return self.km / self.gramos
+        else:
+            return None
     
     def cssv(self):
-        return self.veces_volo / self.veces_comio
+        return len(self.listakm) / len(self.listagramos)
     
-gorriones = Gorriones()
-print(gorriones.volar(2))
-"""
-
-
-
+    def cssp(self):
+        return max(self.listakm) / max(self.listagramos)
+    
+    def equilibrio(self):
+        return 0.5 <= self.css() <= 2
+        
+    
+pepe = Gorrion()
+print("css, cssp, cssv: ")
+print(pepe.volar(10))
+print(pepe.volar(6))
+print(pepe.comer(1))
+print(pepe.comer(2))
+print("css")
+print(pepe.css())
+print("cssv")
+print(pepe.cssv())
+print("cssp")
+print(pepe.cssp())
+print(pepe.equilibrio())
 
 
 #PRACTICA OBJETOS PARTE 2
 
 #1
-"""
-INTERFACES: comer, acariciar, pasear (de las cuales comparten comer y acariciar)
-ESTADOS: caricias, alimentos
-Son polimorficas debido a que saben responder a los mensajes que se les envia
-"""
+
+# INTERFACES: comer, acariciar, pasear (de las cuales comparten comer y acariciar)
+# ESTADOS: caricias, alimentos
+# NO son polimorficas debido a que falta un objeto que les de ordenes/mensajes
+
+
 
 #2
 class Golondrina():
@@ -164,52 +182,112 @@ class Golondrina():
             return "NO esta en equilibrio"
 
 #3
+class Ornitologo():
+    def __init__(self):
+        self.aves = []
+#Aves que va a entrenar
+    def estudiarAve(self, ave):
+        self.aves.append(ave)
+#Agrega el ave que va a estudiar a la lista    
+    def avesEnEstudio(self):
+        return self.aves
+#Dice que aves esta estudiando
+    def realizarRutinaSobreAves(self):
+        for ave in self.aves:
+            self.ave.comer(80)
+            self.ave.volar(70)
+            self.ave.comer(10)
 
+    def avesEnEquilibrio(self):
+        EnEquilibrio = []
+        for ave in self.aves:
+            if self.ave.equilibrio:
+                EnEquilibrio.append(ave)
+        return EnEquilibrio                
 #4
-class Auto():
+class MedioDeTransporte:
     def __init__(self, combustible):
         self.combustible = combustible
-    
-    def andar(self, kms):
-        self.combustible -= kms/2
-            
+              
     def cargar_combistible(self, litros):
         self.combustible += litros
     
-    def entran(self, cant_personas):
-        if 0 <= cant_personas <= 5:
-            return True
-        else:
-            return "El maximo de personas permitidas es 5"
+    def combustible_actual(self):
+        return self.combustible
+    
+    def entran(self, personas):
+        return personas <= self.maxPasajeros()
 
+class Auto(MedioDeTransporte):
+    def recorrer(self, kms):
+        self.combustible -= kms/2
+
+    def maxPasajeros(self):
+        return 5
+
+class Moto(MedioDeTransporte):
+    def recorrer(self, kms):
+        self.combustible -= kms
+
+    def maxPasajeros(self):
+        return 2
+
+print("auto:")
 auto = Auto(100)
 print(auto.combustible)
-print(auto.andar(10))
+print(auto.recorrer(10))
 print(auto.combustible)
 print(auto.cargar_combistible(5))
 print(auto.combustible)
 print(auto.entran(1))
+print(auto.entran(6))
 
-class Moto():
-    def __init__(self, combustible):
-        self.combustible = combustible
-    
-    def andar(self, kms):
-        self.combustible -= kms
-            
-    def cargar_combistible(self, litros):
-        self.combustible += litros
-    
-    def entran(self, cant_personas):
-        if 0 <= cant_personas <= 2:
-            return True
-        else:
-            return "El maximo de personas permitidas es 2"
+print("moto:")
 moto = Moto(100)
 print(moto.combustible)
-print(moto.andar(10))
+print(moto.recorrer(10))
 print(moto.combustible)
 print(moto.cargar_combistible(5))
 print(moto.combustible)
+print(moto.entran(2))
 print(moto.entran(3))
 
+
+# EJERCICIO PARCIAL
+
+class Persona:
+    def __init__(self, energia):
+        self.energia = energia
+        self.feliz = False
+    
+    def energia(self):
+        return self.energia
+
+    def dormir(self, horas):
+        if horas >= 8:
+            self.energia = 100
+        elif (self.energia + 12.5 * horas) <= 100:
+            self.energia = 100
+        else:
+            self.energia += (12.5 * horas)
+
+    def comer(self):
+        self.energia += 10
+    
+    def hacerEjercicio(self, minutos):
+        self.energia -= (minutos * 25) / 30
+
+class Estudiante(Persona):
+    def estudiar(self, horas):
+        self.energia -= (horas * 20)
+    
+    def aprobo(self):
+        self.estadoDeAnimo = True
+        return True
+
+estudiante = Estudiante(100)
+estudiante.hacerEjercicio(30)
+estudiante.estudiar(3)
+estudiante.comer()
+print(estudiante.aprobo())
+print(estudiante.energia)

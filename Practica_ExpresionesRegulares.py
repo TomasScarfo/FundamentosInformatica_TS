@@ -82,6 +82,6 @@ print(espacios_y_tab("espacios y    tabulaciones"))
 
 #15
 def correo_electronico(mail):
-    return bool(re.findall("[a-z0-9.-_]"+"@"+"[a-z0-9.-_]"+"."+"[a-z]", mail))
+    return bool(re.findall("^[a-z0-9.-_]"+"@"+"[a-z0-9.-_]"+"."+"[a-z]$", mail))
 print(correo_electronico("tomas.scarfo@gmail.com"))
 print(correo_electronico("tomas/scarfo.gmail.com"))
