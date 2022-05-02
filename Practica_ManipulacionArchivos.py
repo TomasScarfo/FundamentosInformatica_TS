@@ -1,6 +1,4 @@
 #1
-from re import X
-
 
 def CuantasNO(archivo, letra):
     suma = 0
@@ -106,3 +104,19 @@ def check_int_type(X):
         TypeError("Only strings are allowed")
 
 print(check_int_type(4))
+
+
+def lista(lista):
+    enteros = 0
+    for x in lista:
+        if x == int(x):
+            enteros += 1
+    return enteros
+print(lista([1, 2.3, 4, 5.3, 10000]))
+
+def longitud(lista_strings):
+    longitud_str = []
+    for string in lista_strings:
+        longitud_str.append(len(string))
+    return len(lista_strings), longitud_str
+print(longitud(["meeessi", "mama", "papas"]))

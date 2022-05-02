@@ -21,6 +21,8 @@ print(perro.comer(100))
 print(perro._alimento)
 print(perro._caricias)
 print(perro.energia())
+print(perro.energia)
+print(perro.energia())
 
 #2
 class Golondrina():
