@@ -15,14 +15,14 @@ class Perro:
 
     def estaDebil(self):
         return self._caricias < 2
-
+"""
 perro = Perro()
 print(perro.comer(100))
 print(perro._alimento)
 print(perro._caricias)
 print(perro.energia())
 print(perro.energia)
-print(perro.energia())
+print(perro.energia())"""
 
 #2
 class Golondrina():
@@ -34,8 +34,8 @@ class Golondrina():
             return "No puede volar debido a su energia"
         else:
             self.energia += 10
-golondrina = Golondrina(1110)
-print(golondrina.volar())
+#golondrina = Golondrina(1110)
+#print(golondrina.volar())
 
 #3
 class Notebook():
@@ -46,44 +46,49 @@ class Notebook():
     
     def descuento(self, porcentaje):
         return self.precio * (1 - porcentaje / 100)
-
+"""
 notebook = Notebook(100)
 print(notebook.marca)
 print(notebook.precio)
 print(notebook.modelo)
-print(notebook.descuento(40)) 
+print(notebook.descuento(40)) """
 
 #4
 class Contador():
     def __init__(self, precio):
         self.precio = precio
+        self.ultimo = ""
     
     def inc(self):
         self.precio += 1
+        self.ultimo = "Incremento"
     
     def dis(self):
         self.precio -= 1
+        self.ultimo = "Disminucion"
     
     def reset(self):
         self.precio = 0
+        self.ultimo = "Reset"
     
     def valorActual(self):
         return self.precio
     
     def valorNuevo(self, nuevo_valor):
         self.precio = nuevo_valor
+        self.ultimo = "Actualizacion"
+    
+    def ultimoComando(self):
+        return self.ultimo
 
 contador = Contador(10)
-print(contador.inc())
-print(contador.inc())
-print(contador.dis())
-print(contador.inc())
-print(contador.valorActual())
-print(contador.valorNuevo(27))
-print(contador.dis())
-print(contador.dis())
-print(contador.valorActual()) 
-
+contador.valorActual()
+contador.valorNuevo(27)
+contador.dis()
+contador.dis()
+contador.inc()
+contador.inc()
+print(contador.ultimoComando())
 #5
 
 
@@ -107,13 +112,13 @@ class Calculadora():
     def valorActual(self):
         return self.numero
 
-calculadora = Calculadora()
+"""calculadora = Calculadora()
 print(calculadora.cargar(0))
 print(calculadora.sumar(4))
 print(calculadora.multiplicar(5))
 print(calculadora.restar(8))
 print(calculadora.multiplicar(2))
-print(calculadora.valorActual())
+print(calculadora.valorActual())"""
 
 #7 
 
@@ -146,8 +151,8 @@ class Gorrion:
     
     def equilibrio(self):
         return 0.5 <= self.css() <= 2
-        
-    
+
+"""  
 pepe = Gorrion()
 print("css, cssp, cssv: ")
 print(pepe.volar(10))
@@ -160,7 +165,7 @@ print("cssv")
 print(pepe.cssv())
 print("cssp")
 print(pepe.cssp())
-print(pepe.equilibrio())
+print(pepe.equilibrio())"""
 
 
 #PRACTICA OBJETOS PARTE 2
@@ -233,7 +238,7 @@ class Moto(MedioDeTransporte):
 
     def maxPasajeros(self):
         return 2
-
+"""
 print("auto:")
 auto = Auto(100)
 print(auto.combustible)
@@ -252,7 +257,7 @@ print(moto.combustible)
 print(moto.cargar_combistible(5))
 print(moto.combustible)
 print(moto.entran(2))
-print(moto.entran(3))
+print(moto.entran(3))"""
 
 
 # EJERCICIO PARCIAL
@@ -286,10 +291,10 @@ class Estudiante(Persona):
     def aprobo(self):
         self.estadoDeAnimo = True
         return True
-
+"""
 estudiante = Estudiante(100)
 estudiante.hacerEjercicio(30)
 estudiante.estudiar(3)
 estudiante.comer()
 print(estudiante.aprobo())
-print(estudiante.energia)
+print(estudiante.energia)"""

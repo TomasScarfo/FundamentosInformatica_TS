@@ -12,9 +12,8 @@ def caracter_permitido2(string):
     for caracter in string:
         if not bool(re.findall("\w", caracter)):
             return False
-        else:
-            return resultado
-#print(caracter_permitido2("tgtD0gte"))
+    return resultado
+#print(caracter_permitido2("tg6tD0gte"))
 #print(caracter_permitido2("/rogknetg/"))
 #print(caracter_permitido2("**"))
 
@@ -52,7 +51,7 @@ def ej6(lista_string, frase):
         resultado = bool(re.findall(string, frase))
     return resultado
 
-print(ej6(["hola", "como", "te"], "hola como va"))
+#print(ej6(["hola", "como", "te"], "hola como va"))
 
 #7
 def ej7(string):
@@ -67,7 +66,7 @@ def ej7(string):
 #8
 def numeros(string):
     return re.findall("\d", string)
-print(numeros("0ngsdf322f4"))
+#print(numeros("0ngsdf322f4"))
 
 #9
 def guiones(string):
@@ -77,10 +76,10 @@ def guiones(string):
 #10
 def substrings(string):
     return re.search("(@|&)(.*?)(&|@)", string)
-print(substrings("tomas.scarfo@gmail&.com"))
-print(substrings("tomas.scarfo&gmail@.com"))
-print(substrings("tomas.scarfo&gmail&.com"))
-print(substrings("tomas.scarfo@gmail@.com"))
+#print(substrings("tomas.scarfo@gmail&.com"))
+#print(substrings("tomas.scarfo&gmail@.com"))
+#print(substrings("tomas.scarfo&gmail&.com"))
+#print(substrings("tomas.scarfo@gmail@.com"))
 
 #11
 def letra_p(lista):
@@ -89,12 +88,12 @@ def letra_p(lista):
         if resultado is not None:
             print(resultado.group())
     
-print(letra_p(["papa mama", "practica python", "pa ld"]))
+#print(letra_p(["papa mama", "practica python", "pa ld"]))
 
  #12
 def sustituir(string):
     return re.sub("[_ :]", "|", string)
-print(sustituir("tomas_aleja ndro:scarfo "))
+#print(sustituir("tomas_aleja ndro:scarfo "))
 
 #13
 def no_numerico(string):
@@ -104,7 +103,7 @@ def no_numerico(string):
 #14
 def espacios_y_tab(string):
     return re.sub("[\s\t]", ";", string)
-print(espacios_y_tab("espacios\sy\ttabulaciones"))
+#print(espacios_y_tab("espacios\sy\ttabulaciones"))
 
 #15
 def correo_electronico(mail):

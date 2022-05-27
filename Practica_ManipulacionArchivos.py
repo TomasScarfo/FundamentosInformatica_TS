@@ -4,9 +4,10 @@ def CuantasNO(archivo, letra):
     suma = 0
     with open(archivo, "r") as f:
         for linea in f.readlines().split("\n"):
-            if linea[0] != letra:
+            if not linea.startswith(letra):
                 suma += 1
-    print(suma)
+    return suma
+print(CuantasNO())
 
 #2
 def imprimir_lineas(archivo, n):
